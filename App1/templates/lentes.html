@@ -1,0 +1,25 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+
+{% block titulo %}
+        <title>Optieyes - Lentes</title>
+{% endblock titulo %}
+
+
+{% block contenido %}
+<br>
+<ul>
+        
+    {% for lente in lentes %}
+
+        <li style="color: gray">Lente {{lente.marca}}, {{lente.material}} {{lente.color}}, {{lente.graduacion}} de graduación - ${{lente.precio}}</li>
+
+    {% endfor %}
+        
+</ul>
+
+<class="nav-item"><a class="nav-link" href="{% url 'Lentes_Formulario' %}">Agregar lentes</a>
+<br>
+{% endblock contenido %}

@@ -1,0 +1,28 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+
+{% block titulo %}
+        <title>Optieyes</title>
+{% endblock titulo %}
+
+
+{% block contenido %}
+    <br>
+    {% if armazones %}
+    <ul>
+        
+        {% for armazon in armazones %}
+            <h5><b>El código {{armazon.codigo}} pertenece al armazón {{armazon.marca}} {{armazon.color}} de {{armazon.material}} 
+            para {{armazon.tamagno}}, de ${{armazon.precio}}</b></h5>
+        {% endfor %}
+            
+    </ul>
+
+    {% else %}
+        <p>No hay datos</p>
+
+    {% endif %}
+    <br>
+{% endblock contenido %}

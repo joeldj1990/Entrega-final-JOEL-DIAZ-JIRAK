@@ -1,0 +1,27 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+
+{% block titulo %}
+        <title>Optieyes - Armazones</title>
+{% endblock titulo %}
+
+
+{% block contenido %}
+<br>
+<ul>
+        
+    {% for armazon in armazones %}
+        
+
+        <li style="color: rgb(0, 0, 160)">Anteojos {{armazon.marca}} de color {{armazon.color}}, de {{armazon.material}} para {{armazon.tamagno}} - ${{armazon.precio}}</li>
+
+        
+    {% endfor %}
+        
+</ul>
+
+<class="nav-item"><a class="nav-link" href="{% url 'Armazones_Formulario' %}">Agregar anteojos convencionales</a>
+<br>
+{% endblock contenido %}

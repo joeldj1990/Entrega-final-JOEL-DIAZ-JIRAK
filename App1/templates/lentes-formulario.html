@@ -1,0 +1,23 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+
+{% block titulo %}
+        <title>Optieyes</title>
+{% endblock titulo %}
+
+
+{% block contenido %}
+    <br>
+    <b><h5>Agregar lentes:</b></h5><br>
+    <form action='/app1/lentes-formulario/' method="POST">{% csrf_token %}
+
+        {{formulario.as_p}}
+
+        <input type="submit" value="Enviar"/>
+
+
+    </form>
+    <br>
+{% endblock contenido %}

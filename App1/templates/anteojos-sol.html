@@ -1,0 +1,25 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+
+{% block titulo %}
+        <title>Optieyes - Anteojos de sol</title>
+{% endblock titulo %}
+
+
+{% block contenido %}
+<br>
+<ul>
+        
+    {% for lentesol in anteojos_sol %}
+
+        <li style="color: brown">Anteojos de sol {{lentesol.marca}} de armazón color {{lentesol.color_armazon}} y lente color {{lentesol.color_lente}}, de {{lentesol.material}} para {{lentesol.tamagno}} - ${{lentesol.precio}}</li>
+
+    {% endfor %}
+        
+</ul>
+
+<class="nav-item"><a class="nav-link" href="{% url 'Sol_Formulario' %}">Agregar anteojos de sol</a>
+<br>
+{% endblock contenido %}

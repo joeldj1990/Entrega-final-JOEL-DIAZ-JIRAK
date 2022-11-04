@@ -1,0 +1,21 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+
+{% block titulo %}
+        <title>Optieyes - Búsqueda</title>
+{% endblock titulo %}
+
+
+{% block contenido %}
+    <br>
+    <form action='/app1/buscar/' method="GET">
+
+        <input type="number" name="codigo">
+
+        <input type="submit" value="Buscar">
+
+    </form>
+    <br>
+{% endblock contenido %}
