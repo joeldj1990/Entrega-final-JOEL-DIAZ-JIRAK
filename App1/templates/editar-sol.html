@@ -1,0 +1,23 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+
+{% block titulo %}
+        <title>Optieyes</title>
+{% endblock titulo %}
+
+
+{% block contenido %}
+    <br>
+    <b><h5>Editar anteojos de sol:</b></h5><br>
+    <form action="{% url 'Editar_Soles' id %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
+
+        {{formulario.as_p}}
+
+        <br><input type="submit" value="Actualizar"/>
+
+
+    </form>
+    <br>
+{% endblock contenido %}

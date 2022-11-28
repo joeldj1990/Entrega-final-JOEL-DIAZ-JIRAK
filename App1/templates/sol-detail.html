@@ -1,0 +1,40 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+
+{% block titulo %}
+        <title>Optieyes - Anteojos de sol</title>
+{% endblock titulo %}
+
+
+{% block contenido %}
+<br>
+<ul>
+  
+        {% if sol.foto %}
+        <img src="{{sol.foto.url}}" alt="">
+        {% else %}
+        <img src="{% static 'assets/sin_imagen.jpg' %}" alt="(SIN IMAGEN)">
+        {% endif %}
+        <br>
+
+        <br><b>Marca:</b> {{sol.marca}}<br>
+        <b>Color del armazón:</b> {{sol.color_armazon}}<br>
+        <b>Color de lente:</b> {{sol.color_lente}}<br>
+        <b>Material:</b> {{sol.material}}<br>
+        <b>Tamaño:</b> {{sol.tamagno}}<br>
+        <b>Precio:</b> ${{sol.precio}}<br>
+        <b>Código:</b> {{sol.codigo}}<br>
+        <b>Medidas:</b> {{sol.medidas}}<br>
+        <b>Tipo:</b> {{sol.tipo}}<br>
+        <b>Peso:</b> {{sol.peso}}<br>
+        <b>Polarizado:</b> {{sol.polarizado}}<br>
+        <b>Antireflejo:</b> {{sol.antireflejo}}<br>
+        <b>Estilo:</b> {{sol.estilo}}<br>
+        <b>Fecha de ingreso:</b> {{sol.fecha}}
+        
+</ul>
+<br>
+<br>
+{% endblock contenido %}

@@ -1,0 +1,25 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+
+{% block titulo %}
+        <title>Optieyes - Armazones</title>
+{% endblock titulo %}
+
+
+{% block contenido %}
+<br>
+<ul>
+        
+    {% for armazon in armazones %}
+    <a href="{% url 'Detalle_Armazon' armazon.id %}">
+        <li style="color: rgb(0, 0, 160)">Anteojos {{armazon.marca}} de color {{armazon.color}}, de {{armazon.material}} para {{armazon.tamagno}} - ${{armazon.precio}}</li>
+    </a>
+        
+    {% endfor %}
+        
+</ul>
+<br>
+<br>
+{% endblock contenido %}

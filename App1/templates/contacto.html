@@ -1,0 +1,26 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+
+{% block titulo %}
+        <title>Optieyes - Contacto</title>
+{% endblock titulo %}
+
+
+{% block contenido %}
+    <br>
+    <b><h5>Contactanos:</b></h5><br>
+    <form action="{% url 'Contacto' %}" method="POST">{% csrf_token %}
+
+        <p>Asunto: <input type="text" name="asunto"></p>
+
+        <p>Email: <input type="text" name="email"></p>
+
+        <p>Mensaje: <textarea name="mensaje" cols="45" rows="15"></textarea></p>
+        
+        <br><input type="submit" value="Enviar"/>
+
+    </form>
+    <br>
+{% endblock contenido %}

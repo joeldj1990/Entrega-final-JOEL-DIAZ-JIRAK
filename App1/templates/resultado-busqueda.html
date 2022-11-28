@@ -10,18 +10,26 @@
 
 {% block contenido %}
     <br>
-    {% if armazones %}
+    {% if armazones or anteojos_sol or lentes %}
     <ul>
         
         {% for armazon in armazones %}
-            <h5><b>El código {{armazon.codigo}} pertenece al armazón {{armazon.marca}} {{armazon.color}} de {{armazon.material}} 
-            para {{armazon.tamagno}}, de ${{armazon.precio}}</b></h5>
+        <a href="{% url 'Detalle_Armazon' armazon.id %}">
+        <li style="color: rgb(0, 0, 160)">Anteojos {{armazon.marca}} de color {{armazon.color}}, de {{armazon.material}} para {{armazon.tamagno}} - ${{armazon.precio}}</li>
+        {% endfor %}
+        {% for lentesol in anteojos_sol %}
+        <a href="{% url 'Detalle_Lente_Sol' lentesol.id %}">
+        <li style="color: brown">Anteojos de sol {{lentesol.marca}} de armazón color {{lentesol.color_armazon}} y lente color {{lentesol.color_lente}}, de {{lentesol.material}} para {{lentesol.tamagno}} - ${{lentesol.precio}}</li>
+        {% endfor %}
+        {% for lente in lentes %}
+        <a href="{% url 'Detalle_Lente' lente.id %}">
+        <li style="color: gray">Lente {{lente.marca}}, {{lente.material}} {{lente.color}}, {{lente.graduacion}} de graduación - ${{lente.precio}}</li>
         {% endfor %}
             
     </ul>
 
     {% else %}
-        <p>No hay datos</p>
+    <h1><p>No hay resultados para su búsqueda</p></h1>
 
     {% endif %}
     <br>

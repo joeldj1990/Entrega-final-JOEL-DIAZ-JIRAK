@@ -1,0 +1,38 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+
+{% block titulo %}
+        <title>Optieyes - Armazones</title>
+{% endblock titulo %}
+
+
+{% block contenido %}
+<br>
+<ul>       
+
+{% if armazon.foto %}
+<img src="{{armazon.foto.url}}" alt="">
+{% else %}
+<img src="{% static 'assets/sin_imagen.jpg' %}" alt="(SIN IMAGEN)">
+{% endif %}
+<br>
+
+        <br><b>Marca:</b> {{armazon.marca}}<br>
+        <b>Color:</b> {{armazon.color}}<br>
+        <b>Material:</b> {{armazon.material}}<br>
+        <b>Tamaño:</b> {{armazon.tamagno}}<br>
+        <b>Precio:</b> ${{armazon.precio}}<br>
+        <b>Código:</b> {{armazon.codigo}}<br>
+        <b>Medidas:</b> {{armazon.medidas}}<br>
+        <b>Tipo:</b> {{armazon.tipo}}<br>
+        <b>Peso:</b> {{armazon.peso}}<br>
+        <b>Estilo:</b> {{armazon.estilo}}<br>
+        <b>Fecha de ingreso:</b> {{armazon.fecha}}
+        
+          
+</ul>
+<br>
+<br>
+{% endblock contenido %}

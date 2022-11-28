@@ -1,0 +1,23 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+
+{% block titulo %}
+        <title>Optieyes - Crear usuario</title>
+{% endblock titulo %}
+
+
+{% block contenido %}
+    <br>
+    <b><h5>Crear nuevo usuario:</b></h5><br>
+    <form action='{% url "Registrar" %}' method="POST"> {% csrf_token %}
+
+        {{formulario.as_p}}
+
+        <br><input type="submit" value="Registrar"/>
+
+
+    </form>
+    <br>
+{% endblock contenido %}

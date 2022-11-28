@@ -1,0 +1,23 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+
+{% block titulo %}
+        <title>Optieyes</title>
+{% endblock titulo %}
+
+
+{% block contenido %}
+    <br>
+    <b><h5>Editar imagen de perfil:</b></h5>
+    <form method="POST" enctype="multipart/form-data">{% csrf_token %}
+
+        Imagen de perfil: {{perfil.imagen}}
+
+        <br><input type="submit" value="Actualizar"/>
+
+
+    </form>
+    <br>
+{% endblock contenido %}

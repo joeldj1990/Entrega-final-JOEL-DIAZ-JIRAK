@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import buscar, inicio, horario, armazones, preguntas, anteojos_sol, lentes, armazones_formulario, sol_formulario, lentes_formulario, busqueda_codigo
+from .views import cambiar_avatar, about, contacto, sin_paginas, acceso_denegado, editar_perfil, registrar, login_view, Lentes_Detail, Lentes_List, Sol_Detail,  Sol_List, Armazones_Detail, Armazones_List, buscar, inicio, horario, armazones, preguntas, anteojos_sol, lentes, armazones_formulario, sol_formulario, lentes_formulario, busqueda_codigo, eliminar_armazones, eliminar_lentes, eliminar_sol, editar_armazones, editar_soles, editar_lentes
+from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     path('', inicio, name="Inicio"),
@@ -13,4 +14,25 @@ urlpatterns = [
     path('lentes-formulario/', lentes_formulario, name="Lentes_Formulario"),
     path('busqueda/', busqueda_codigo, name="Busqueda"),
     path('buscar/', buscar, name="Buscar"),
+    path('elimina-armazones/<int:id>', eliminar_armazones, name="Elimina_Armazones"),
+    path('elimina-sol/<int:id>', eliminar_sol, name="Elimina_Sol"),
+    path('elimina-lentes/<int:id>', eliminar_lentes, name="Elimina_Lentes"),
+    path('editar-armazones/<int:id>', editar_armazones, name="Editar_Armazones"),
+    path('editar-soles/<int:id>', editar_soles, name="Editar_Soles"),
+    path('editar-lentes/<int:id>', editar_lentes, name="Editar_Lentes"),
+    path('armazones-lista/', Armazones_List.as_view(), name="Lista_Armazones"),
+    path('armazones-detalle/<pk>', Armazones_Detail.as_view(), name="Detalle_Armazon"),
+    path('lentessol-lista/', Sol_List.as_view(), name="Lista_Lentes_Sol"),
+    path('lentessol-detalle/<pk>', Sol_Detail.as_view(), name="Detalle_Lente_Sol"),
+    path('lentes-lista/', Lentes_List.as_view(), name="Lista_Lentes"),
+    path('lentes-detalle/<pk>', Lentes_Detail.as_view(), name="Detalle_Lente"),
+    path('login/', login_view, name="Login"),
+    path('registrar/', registrar, name="Registrar"),
+    path('logout/', LogoutView.as_view(template_name="logout.html"), name="Logout"),
+    path('acceso-denegado/', acceso_denegado, name='Acceso_Denegado'),
+    path('editar-perfil/', editar_perfil, name='Editar_Perfil'),
+    path('sin-paginas/', sin_paginas, name='Sin_Paginas'),
+    path('about/', about, name='About'),
+    path('cambiar-avatar/', cambiar_avatar, name='Cambiar_Avatar'),
+    path('contacto/', contacto, name='Contacto'),
 ]

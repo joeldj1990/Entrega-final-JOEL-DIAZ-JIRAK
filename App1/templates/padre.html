@@ -31,12 +31,30 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="{% url 'Armazones' %}">Anteojos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'Anteojos_Sol' %}">Anteojos de sol</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'Lentes' %}">Lentes</a></li>
+                        
+                        {% if request.user.is_staff %}
+                            <li class="nav-item"><a class="nav-link" href="{% url 'Armazones' %}">Anteojos</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'Anteojos_Sol' %}">Anteojos de sol</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'Lentes' %}">Lentes</a></li>
+                        {% else %}
+                            <li class="nav-item"><a class="nav-link" href="{% url 'Lista_Armazones' %}">Anteojos</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'Lista_Lentes_Sol' %}">Anteojos de sol</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'Lista_Lentes' %}">Lentes</a></li>
+                        {% endif %}
                         <li class="nav-item"><a class="nav-link" href="{% url 'Horarios' %}">Horarios</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'Preguntas' %}">Preguntas frecuentes</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'Busqueda' %}">Buscar</a></li>
+                        
+                        {% if request.user.is_authenticated %}
+                            <a class="text-muted small mb-4 mb-lg-0" href="{% url 'Editar_Perfil' %}">Bienvenido {{user.username}}</a>
+                            <a href="{% url 'Cambiar_Avatar' %}"><img class="imagen" src="{{ request.user.avatar.imagen.url }}"></a>
+                                
+                            <a class="btn btn-primary" href="{% url 'Logout' %}">Logout</a>
+                        {% else %}
+                            <a class="btn btn-primary" href="{% url 'Login' %}">Login</a>
+                            <a class="btn btn-primary" href="{% url 'Registrar' %}">Registrarse</a>
+                        {% endif %}
+                            
                     </ul>
                 </div>
             </div>
@@ -76,7 +94,7 @@
                                 <i class="fas fa-envelope text-primary mb-2"></i>
                                 <h4 class="text-uppercase m-0">Email</h4>
                                 <hr class="my-4 mx-auto" />
-                                <div class="small text-black-50">optieyes@gmail.com</div>
+                                <div class="small text-black-50">optieyes777@gmail.com</div>
                             </div>
                         </div>
                     </div>
@@ -92,9 +110,18 @@
                     </div>
                 </div>
                 <div class="social d-flex justify-content-center">
-                    <a class="mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                    <a class="mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                    <a class="mx-2" href="#!"><i class="fab fa-github"></i></a>
+                    <a class="mx-2" href="{% url 'Sin_Paginas' %}"><i class="fab fa-google"></i></a>
+                    <a class="mx-2" href="{% url 'Sin_Paginas' %}"><i class="fab fa-facebook-f"></i></a>
+                    <a class="mx-2" href="https://github.com/joeldj1990"><i class="fab fa-github"></i></a>
+                </div>
+                <br>
+                <br>
+                <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+                    <a class="mx-2" href="{% url 'About' %}"><i class="nav-item">Sobre mi</i></a>
+                </div>
+                <br>
+                <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+                    <a class="mx-2" href="{% url 'Contacto' %}"><i class="nav-item">Contacto</i></a>
                 </div>
             </div>
         </section>

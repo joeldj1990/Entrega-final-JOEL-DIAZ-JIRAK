@@ -11,21 +11,12 @@
 {% block contenido %}
     <br>
     <b><h5>Agregar anteojos convencionales:</b></h5><br>
-    <form action='/app1/armazones-formulario/' method="POST">{% csrf_token %}
+    <form action='/app1/armazones-formulario/' method="POST" enctype="multipart/form-data">{% csrf_token %}
 
-        <p>Armazón: <input type="text" name="marca"/></p>
+        {{formulario.as_p}}
+        <img src="{{obj.foto.url}}" alt="">
 
-        <p>Color: <input type="text" name="color"/></p>
-
-        <p>Material: <input type="text" name="material"/></p>
-
-        <p>Tamaño: <input type="text" name="tamagno"/></p>
-
-        <p>Precio: <input type="number" name="precio"/></p>
-
-        <p>Código: <input type="number" name="codigo"/></p>
-
-        <input type="submit" value="Enviar"/>
+        <br><input type="submit" value="Agregar"/>
 
 
     </form>

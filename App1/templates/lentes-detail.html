@@ -1,0 +1,36 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+
+{% block titulo %}
+        <title>Optieyes - Lentes</title>
+{% endblock titulo %}
+
+
+{% block contenido %}
+<br>
+<ul>
+        
+        {% if lente.foto %}
+        <img src="{{lente.foto.url}}" alt="">
+        {% else %}
+        <img src="{% static 'assets/sin_imagen.jpg' %}" alt="(SIN IMAGEN)">
+        {% endif %}
+        <br>
+
+        <br><b>Marca:</b> {{lente.marca}}<br>
+        <b>Color:</b> {{lente.color}}<br>
+        <b>Material:</b> {{lente.material}}<br>
+        <b>Graduación:</b> {{lente.graduacion}}<br>
+        <b>Precio:</b> ${{lente.precio}}<br>
+        <b>Código:</b> {{lente.codigo}}<br>
+        <b>Laboratorio:</b> {{lente.laboratorio}}<br>
+        <b>Duración:</b> {{lente.duracion}}<br>
+        <b>Prescripción:</b> {{lente.prescripcion}}<br>
+        <b>Fecha de ingreso:</b> {{lente.fecha}}<br>
+        
+</ul>
+<br>
+<br>
+{% endblock contenido %}

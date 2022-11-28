@@ -11,11 +11,11 @@
 {% block contenido %}
     <br>
     <b><h5>Agregar lentes:</b></h5><br>
-    <form action='/app1/lentes-formulario/' method="POST">{% csrf_token %}
+    <form action='/app1/lentes-formulario/' method="POST" enctype="multipart/form-data">{% csrf_token %}
 
         {{formulario.as_p}}
 
-        <input type="submit" value="Enviar"/>
+        <br><input type="submit" value="Agregar"/>
 
 
     </form>

@@ -1,0 +1,23 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+
+{% block titulo %}
+        <title>Optieyes - Login</title>
+{% endblock titulo %}
+
+
+{% block contenido %}
+    <br>
+    <b><h5>Iniciar sesión:</b></h5><br>
+    <form action='{% url "Login" %}' method="POST">{% csrf_token %}
+
+        {{formulario.as_p}}
+
+        <br><input type="submit" value="Login"/>
+
+
+    </form>
+    <br>
+{% endblock contenido %}
