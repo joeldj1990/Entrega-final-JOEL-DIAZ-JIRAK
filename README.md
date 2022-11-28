@@ -9,3 +9,6 @@ Formularios para creación de usuarios, con asignación de avatar automática, y
 Buscador único funcional entre los modelos de productos creados.
 Prohibición de funcionalidades y vistas de algunos templates dependiendo de si el usuario está logueado o no, o de si tiene o no permisos de administrador.
 Funcionalidad de contacto, para enviar consultas que llegarán a un mail fijado previamente.
+
+
+Link al video https://www.youtube.com/watch?v=iFAkq9Hpu_E
